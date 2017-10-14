@@ -1,0 +1,41 @@
+#include "{{nom}}.h"
+
+{{#includes}}
+#include {{{.}}}
+{{/includes}}
+
+{{#namespaces}}
+namespace {{{.}}} {
+{{/namespaces}}
+
+
+{{#operators}}
+{{#lt}}
+bool operator<(const {{nom}}& lhs, const {{nom}}& rhs){
+
+  if(
+  {{#struct}}
+    lhs.{{tag}}<rhs.{{tag}} {{^last}}&&{{/last}}
+    {{/struct}}
+  ) {
+    return true;
+  }else{
+    return false;
+  }
+}
+{{/lt}}
+{{#gt}}
+bool operator>(const {{nom}}& lhs, const {{nom}}& rhs);
+{{/gt}}
+{{#le}}
+inline bool operator<=(const {{nom}}& lhs, const {{nom}}& rhs);
+{{/le}}
+{{#ge}}
+bool operator>=(const {{nom}}& lhs, const {{nom}}& rhs);
+{{/ge}}
+{{/operators}}
+
+
+{{#namespaces}}
+  }
+{{/namespaces}}

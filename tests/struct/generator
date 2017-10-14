@@ -1,0 +1,3 @@
+#! /usr/bin/env bash
+
+cfact bottin_atom struct.yaml struct

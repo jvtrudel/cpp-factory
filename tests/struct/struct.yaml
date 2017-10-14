@@ -1,0 +1,19 @@
+nom: bottin_atom
+struct:
+  - tag: nom
+    type: std::string
+  - tag: address
+    type: std::string
+  - tag: telephone
+    type: std::string
+  - tag: id
+    type: int
+    last: true
+namespaces:
+  - db
+  - pj
+includes:
+  - <iostream>
+  - <string>
+operators:
+  lt: ok

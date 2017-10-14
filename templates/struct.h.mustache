@@ -1,0 +1,40 @@
+#ifndef {{nom}}_H
+#define {{nom}}_H
+
+/*
+ *  Fichier généré avec cpp-factory
+ *     git clone git@github.com:trud/cpp-factory.git
+ */
+
+{{#includes}}
+#include {{{.}}}
+{{/includes}}
+
+{{#namespaces}}
+namespace {{.}} {
+{{/namespaces}}
+struct {{nom}}{
+   {{#struct}}
+   {{pre}} {{type}} {{post}} {{tag}};
+   {{/struct}}
+};
+{{#operators}}
+{{#lt}}
+bool operator<(const {{nom}}& lhs, const {{nom}}& rhs);
+{{/lt}}
+{{#gt}}
+bool operator>(const {{nom}}& lhs, const {{nom}}& rhs);
+{{/gt}}
+{{#le}}
+inline bool operator<=(const {{nom}}& lhs, const {{nom}}& rhs);
+{{/le}}
+{{#ge}}
+bool operator>=(const {{nom}}& lhs, const {{nom}}& rhs);
+{{/ge}}
+{{/operators}}
+
+{{#namespaces}}
+  }
+{{/namespaces}}
+
+#endif

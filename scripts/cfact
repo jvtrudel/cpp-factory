@@ -1,0 +1,9 @@
+#! /usr/bin/env bash
+
+fname=$1
+model=$2
+template=$3
+
+mustache $2 $CPP_FACTORY_ROOT/templates/$3.h.mustache > $1.h
+
+mustache $2 $CPP_FACTORY_ROOT/templates/$3.cpp.mustache > $1.cpp
