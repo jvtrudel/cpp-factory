@@ -1,0 +1,61 @@
+
+#include "{{nom}}_qwidget.h"
+
+{{#namespaces}}
+namespace {{.}} {
+{{/namespaces}}
+
+
+{{nom}}_qwidget::{{nom}}_qwidget(QWidget*parent)
+{
+  lay= new QGridLayout;
+
+  // parameters
+  int n=0;
+  int edit_col=2;
+  int edit_span=2;
+  int label_col=0;
+  int label_span=2;
+  int ok_col=3;
+  int ok_span=1;
+  QString ok_label("update");
+  // parameters
+
+  {{#struct}}
+  QLabel *{{tag}}_label=new QLabel("{{label}}");
+  {{tag}}_edit = new QLineEdit;
+  lay->addWidget({{tag}}_label,n,label_col,1,label_span);
+    lay->addWidget({{tag}}_edit,n,edit_col,1,edit_span);
+  n++;
+  {{/struct}}
+
+   ok=new QPushButton(ok_label);
+   lay->addWidget(ok,n,ok_col,1,ok_span);
+
+
+   setLayout(lay);
+
+}
+
+void {{nom}}_qwidget::set(const {{nom}} & _new)
+{
+  {{#struct}}
+  {{tag}}_edit->setText(to_QString(old.{{tag}}));
+  {{/struct}}
+}
+
+
+void {{nom}}_qwidget::update(const {{nom}} & _new)
+{
+  if(_new !=old){
+     old=_new;
+     set(_new);
+   }
+
+}
+
+
+
+{{#namespaces}}
+  }
+{{/namespaces}}

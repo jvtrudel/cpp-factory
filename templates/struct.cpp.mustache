@@ -1,3 +1,4 @@
+
 #include "{{nom}}.h"
 
 {{#includes}}
@@ -7,6 +8,16 @@
 {{#namespaces}}
 namespace {{{.}}} {
 {{/namespaces}}
+
+{{#constructors}}
+{{#default}}
+{{nom}}::{{nom}}():
+{{#struct}}
+{{tag}}({{type}}()){{^last}},{{/last}}
+{{/struct}}
+{}
+{{/default}}
+{{/constructors}}
 
 
 {{#operators}}
@@ -25,14 +36,70 @@ bool operator<(const {{nom}}& lhs, const {{nom}}& rhs){
 }
 {{/lt}}
 {{#gt}}
-bool operator>(const {{nom}}& lhs, const {{nom}}& rhs);
+bool operator>(const {{nom}}& lhs, const {{nom}}& rhs){
+  if(
+  {{#struct}}
+    lhs.{{tag}}>rhs.{{tag}} {{^last}}&&{{/last}}
+    {{/struct}}
+  ) {
+    return true;
+  }else{
+    return false;
+  }
+}
 {{/gt}}
 {{#le}}
-inline bool operator<=(const {{nom}}& lhs, const {{nom}}& rhs);
+inline bool operator<=(const {{nom}}& lhs, const {{nom}}& rhs){
+  if(
+  {{#struct}}
+    lhs.{{tag}}<=rhs.{{tag}} {{^last}}&&{{/last}}
+    {{/struct}}
+  ) {
+    return true;
+  }else{
+    return false;
+  }
+}
 {{/le}}
 {{#ge}}
-bool operator>=(const {{nom}}& lhs, const {{nom}}& rhs);
+bool operator>=(const {{nom}}& lhs, const {{nom}}& rhs){
+  if(
+  {{#struct}}
+    lhs.{{tag}}>=rhs.{{tag}} {{^last}}&&{{/last}}
+    {{/struct}}
+  ) {
+    return true;
+  }else{
+    return false;
+  }
+}
 {{/ge}}
+{{#eq}}
+bool operator==(const {{nom}}& lhs, const {{nom}}& rhs){
+  if(
+  {{#struct}}
+    lhs.{{tag}}==rhs.{{tag}} {{^last}}&&{{/last}}
+    {{/struct}}
+  ) {
+    return true;
+  }else{
+    return false;
+  }
+}
+{{/eq}}
+{{#ne}}
+bool operator!=(const {{nom}}& lhs, const {{nom}}& rhs){
+  if(
+  {{#struct}}
+    lhs.{{tag}}!=rhs.{{tag}} {{^last}}&&{{/last}}
+    {{/struct}}
+  ) {
+    return true;
+  }else{
+    return false;
+  }
+}
+{{/ne}}
 {{/operators}}
 
 

@@ -1,3 +1,4 @@
 #! /usr/bin/env bash
 
 cfact bottin_atom struct.yaml struct
+cfact bottin_atom_qwidget struct.yaml widget

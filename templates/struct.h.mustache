@@ -1,10 +1,5 @@
-#ifndef {{nom}}_H
-#define {{nom}}_H
-
-/*
- *  Fichier généré avec cpp-factory
- *     git clone git@github.com:trud/cpp-factory.git
- */
+#ifndef {{nom}}_STRUCT_H
+#define {{nom}}_STRUCT_H
 
 {{#includes}}
 #include {{{.}}}
@@ -17,7 +12,13 @@ struct {{nom}}{
    {{#struct}}
    {{pre}} {{type}} {{post}} {{tag}};
    {{/struct}}
+   {{#constructors}}
+   {{#default}}
+   {{nom}}();
+   {{/default}}
+   {{/constructors}}
 };
+
 {{#operators}}
 {{#lt}}
 bool operator<(const {{nom}}& lhs, const {{nom}}& rhs);
@@ -31,7 +32,14 @@ inline bool operator<=(const {{nom}}& lhs, const {{nom}}& rhs);
 {{#ge}}
 bool operator>=(const {{nom}}& lhs, const {{nom}}& rhs);
 {{/ge}}
+{{#eq}}
+bool operator==(const {{nom}}& lhs, const {{nom}}& rhs);
+{{/eq}}
+{{#ne}}
+bool operator!=(const {{nom}}& lhs, const {{nom}}& rhs);
+{{/ne}}
 {{/operators}}
+
 
 {{#namespaces}}
   }

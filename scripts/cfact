@@ -4,6 +4,14 @@ fname=$1
 model=$2
 template=$3
 
-mustache $2 $CPP_FACTORY_ROOT/templates/$3.h.mustache > $1.h
+header="/*
+ *  Fichier généré avec cpp-factory
+ *     git clone git@github.com:trud/cpp-factory.git
+ */"
 
-mustache $2 $CPP_FACTORY_ROOT/templates/$3.cpp.mustache > $1.cpp
+echo "$header" > $1.h
+echo "$header" > $1.cpp
+
+mustache $2 $CPP_FACTORY_ROOT/templates/$3.h.mustache >> $1.h
+
+mustache $2 $CPP_FACTORY_ROOT/templates/$3.cpp.mustache >> $1.cpp

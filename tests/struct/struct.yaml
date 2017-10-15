@@ -1,13 +1,17 @@
 nom: bottin_atom
 struct:
-  - tag: nom
-    type: std::string
-  - tag: address
-    type: std::string
-  - tag: telephone
-    type: std::string
   - tag: id
     type: int
+    label: Id
+  - tag: nom
+    type: std::string
+    label: Nom
+  - tag: address
+    type: std::string
+    label: Addresse
+  - tag: telephone
+    type: std::string
+    label: Téléphone
     last: true
 namespaces:
   - db
@@ -17,3 +21,10 @@ includes:
   - <string>
 operators:
   lt: ok
+  gt: ok
+  le: ok
+  ge: ok
+  eq: ok
+  ne: ok
+constructors:
+  default: ok

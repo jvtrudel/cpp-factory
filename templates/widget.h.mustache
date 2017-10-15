@@ -1,0 +1,45 @@
+#ifndef {{nom}}_QWIDGET_H
+#define {{nom}}_QWIDGET_H
+
+{{#includes}}
+#include {{{.}}}
+{{/includes}}
+#include <QWidget>
+#include <QLineEdit>
+#include <QLabel>
+#include <QGridLayout>
+#include <QPushButton>
+#include "toQString.h"
+
+#include "{{nom}}.h"
+
+
+{{#namespaces}}
+namespace {{.}} {
+{{/namespaces}}
+class {{nom}}_qwidget: public QWidget {
+  Q_OBJECT
+public:
+   {{nom}}_qwidget(QWidget*parent=0);
+public slots:
+   void update(const {{nom}} &);
+   void set(const {{nom}} &);
+
+signals:
+   void updated (const {{nom}} &);
+
+private:
+   {{nom}} old;
+{{#struct}}
+   QLineEdit * {{tag}}_edit;
+{{/struct}}
+   QGridLayout * lay;
+   QPushButton * ok;
+   QPushButton * reset;
+};
+
+
+{{#namespaces}}
+  }
+{{/namespaces}}
+#endif
