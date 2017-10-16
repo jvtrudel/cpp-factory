@@ -16,6 +16,11 @@ QString to_QString(const float &i){
 
 
 
-QString to_QString(const std::__1::string &i){
+QString to_QString(const std::string &i){
     return QString(i.c_str());
+}
+
+QString to_QString(const QString &i)
+{
+    return i;
 }

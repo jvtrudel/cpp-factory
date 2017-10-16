@@ -19,12 +19,12 @@ namespaces:
 includes:
   - <iostream>
   - <string>
-operators:
-  lt: ok
-  gt: ok
-  le: ok
-  ge: ok
-  eq: ok
-  ne: ok
-constructors:
-  default: ok
+#operators:
+#  lt: ok
+#  gt: ok
+#  le: ok
+#  ge: ok
+#  eq: ok
+#  ne: ok
+#constructors:
+#  default: ok

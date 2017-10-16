@@ -13,4 +13,6 @@ QString to_QString(const float &i);
 
 QString to_QString(const std::string &i);
 
+QString to_QString(const QString &i);
+
 #endif

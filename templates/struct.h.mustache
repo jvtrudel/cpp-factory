@@ -12,30 +12,30 @@ struct {{nom}}{
    {{#struct}}
    {{pre}} {{type}} {{post}} {{tag}};
    {{/struct}}
-   {{#constructors}}
-   {{#default}}
+   {{^constructors}}
+   {{^default}}
    {{nom}}();
    {{/default}}
    {{/constructors}}
 };
 
-{{#operators}}
-{{#lt}}
+{{^operators}}
+{{^lt}}
 bool operator<(const {{nom}}& lhs, const {{nom}}& rhs);
 {{/lt}}
-{{#gt}}
+{{^gt}}
 bool operator>(const {{nom}}& lhs, const {{nom}}& rhs);
 {{/gt}}
-{{#le}}
+{{^le}}
 inline bool operator<=(const {{nom}}& lhs, const {{nom}}& rhs);
 {{/le}}
-{{#ge}}
+{{^ge}}
 bool operator>=(const {{nom}}& lhs, const {{nom}}& rhs);
 {{/ge}}
-{{#eq}}
+{{^eq}}
 bool operator==(const {{nom}}& lhs, const {{nom}}& rhs);
 {{/eq}}
-{{#ne}}
+{{^ne}}
 bool operator!=(const {{nom}}& lhs, const {{nom}}& rhs);
 {{/ne}}
 {{/operators}}

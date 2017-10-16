@@ -9,8 +9,8 @@
 namespace {{{.}}} {
 {{/namespaces}}
 
-{{#constructors}}
-{{#default}}
+{{^constructors}}
+{{^default}}
 {{nom}}::{{nom}}():
 {{#struct}}
 {{tag}}({{type}}()){{^last}},{{/last}}
@@ -20,8 +20,8 @@ namespace {{{.}}} {
 {{/constructors}}
 
 
-{{#operators}}
-{{#lt}}
+{{^operators}}
+{{^lt}}
 bool operator<(const {{nom}}& lhs, const {{nom}}& rhs){
 
   if(
@@ -35,7 +35,7 @@ bool operator<(const {{nom}}& lhs, const {{nom}}& rhs){
   }
 }
 {{/lt}}
-{{#gt}}
+{{^gt}}
 bool operator>(const {{nom}}& lhs, const {{nom}}& rhs){
   if(
   {{#struct}}
@@ -48,7 +48,7 @@ bool operator>(const {{nom}}& lhs, const {{nom}}& rhs){
   }
 }
 {{/gt}}
-{{#le}}
+{{^le}}
 inline bool operator<=(const {{nom}}& lhs, const {{nom}}& rhs){
   if(
   {{#struct}}
@@ -61,7 +61,7 @@ inline bool operator<=(const {{nom}}& lhs, const {{nom}}& rhs){
   }
 }
 {{/le}}
-{{#ge}}
+{{^ge}}
 bool operator>=(const {{nom}}& lhs, const {{nom}}& rhs){
   if(
   {{#struct}}
@@ -74,7 +74,7 @@ bool operator>=(const {{nom}}& lhs, const {{nom}}& rhs){
   }
 }
 {{/ge}}
-{{#eq}}
+{{^eq}}
 bool operator==(const {{nom}}& lhs, const {{nom}}& rhs){
   if(
   {{#struct}}
@@ -87,7 +87,7 @@ bool operator==(const {{nom}}& lhs, const {{nom}}& rhs){
   }
 }
 {{/eq}}
-{{#ne}}
+{{^ne}}
 bool operator!=(const {{nom}}& lhs, const {{nom}}& rhs){
   if(
   {{#struct}}

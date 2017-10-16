@@ -39,6 +39,7 @@ namespace {{.}} {
 
 void {{nom}}_qwidget::set(const {{nom}} & _new)
 {
+  old=_new;
   {{#struct}}
   {{tag}}_edit->setText(to_QString(old.{{tag}}));
   {{/struct}}
